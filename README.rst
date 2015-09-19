@@ -28,10 +28,35 @@ Installing from source is a bit more complex. The main steps are
     LDFLAGS="-L$GRAPHQL_HOME" CFLAGS="-I$GRAPHQL_HOME/c -I$GRAPHQL_HOME" pip install graphqlparser
 
 
+Usage
+-----
+
+Make sure ``libgraphqlparser`` is available to the loader. You can add its base dir to  ``LD_LIBRARY_PATH``.
+
+Then you can start parsing by creating your custom visitor class::
+
+    from graphql_parser import GraphQLAstVisitor
+
+    class MyVisitor(GraphQLAstVisitor.GraphQLAstVisitor):
+
+        def visit_field(self, node):
+            print('start field %s visit' % node)
+
+        def end_visit_field(self, node):
+            print('end field %s visit' % node)
+
+And using it to visit a parsed query::
+
+    from graphql_parser import GraphQLParser
+
+    node = GraphQLParser.graphql_parse_string(query)
+    MyVisitor().visit_node(node)
+
+
 Building from source checkout
 -----------------------------
 
-Needed to rebuild the generate cython files from the libgraphql AST
+Rebuild the generated cython files from the libgraphql AST (usually not needed)
 
 - download submodules with ``git checkout --recursive``
 - build libgraphql library in folder ``./libgraphqlparser`` (python2.7 required for building)
@@ -49,12 +74,6 @@ To create a wheel distribution:
 - install wheel: ``pip install wheel``
 - create wheelhouse ``mkdir .wheelhouse``
 - build with ``pip wheel --wheel-dir=.wheelhouse .``
-
-
-Run
----
-
-Make sure ``libgraphqlparser`` is available to the loader. You can add its base dir to  ``LD_LIBRARY_PATH``.
 
 
 Known issues
