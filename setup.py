@@ -8,7 +8,7 @@ LIBGRAPHQLPARSER_HOME = os.environ.get('LIBGRAPHQLPARSER_HOME', './libgraphqlpar
 
 
 setup(
-    name='graphql-parser',
+    name='graphqlparser',
     version='0.0.1',
     author='Marco Paolini',
     author_email='markopaolini@gmail.com',
@@ -31,7 +31,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: POSIX :: Linux',
-        'Programming Language :: Python :: Implementation :: CPython'
+        'Programming Language :: Python :: Implementation :: CPython',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ]
