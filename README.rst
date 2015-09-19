@@ -3,8 +3,6 @@ Graphql parser based  on libgraphqlparser
 
 Python2.7+ Python3.4+ class-based bindings to libgraphqlparser
 
-See usage example in `examples/visitor_example.py`
-
 Still **EXPERIMENTAL**
 
 
@@ -53,8 +51,11 @@ And using it to visit a parsed query:
 
   from graphql_parser import GraphQLParser
 
+  query = '{query{}}'
   node = GraphQLParser.graphql_parse_string(query)
   MyVisitor().visit_node(node)
+
+See also ``examples`` folder.
 
 
 Building from source checkout
