@@ -1,3 +1,5 @@
+# coding: utf-8
+
 from setuptools import setup, Extension
 
 from Cython.Build import cythonize
@@ -13,13 +15,18 @@ extensions = cythonize([
 
 setup(
     name='graphqlparser',
-    version='0.0.2',
+    version='0.0.3',
     author='Marco Paolini',
     author_email='markopaolini@gmail.com',
     description='Python bindings for libgraphqlparser (Cython-based)',
-    long_description='Graphql parser based on libgraphql with Cython-based bindings',
+    long_description='\n\n'.join([open('README.rst', 'r').read(),
+                                  '-----', '-----',
+                                  open('NEWS.rst', 'r').read()]),
     url='https://github.com/elastic-coders/py-graphqlparser',
     packages=['graphql_parser'],
+    install_requires=['cython'],
+    package_data={'graphql_parser': ['*.pxd', '*.pyx']},
+    include_package_data=True,
     ext_modules=extensions,
     classifiers=[
         'Development Status :: 3 - Alpha',

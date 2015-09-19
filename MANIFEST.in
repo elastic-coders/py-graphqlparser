@@ -1,0 +1,5 @@
+recursive-include examples *.py
+recursive-include ast *.py
+recursive-include graphql_parser *.pyx *.pxd
+recursive-exclude graphql_parser *.c *.h *.cpp
+include NEWS.rst

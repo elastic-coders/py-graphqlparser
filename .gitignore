@@ -8,4 +8,4 @@ __pycache__
 /.tox
 /.cache
 /dist/
-
+/*.egg-info
