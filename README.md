@@ -1,10 +1,10 @@
 # libgraphql cython port
 
-Python2.7+ (includes python3) class-based bindings to libgraphql
+Python2.7+ Python3.4+ class-based bindings to libgraphqlparser
 
 See usage example in `examples/visitor_example.py`
 
-This bindings are still experimental.
+Still **EXPERIMENTAL**
 
 
 ## Building from source
@@ -34,3 +34,9 @@ Make sure `libgraphql` is available to the loader in your `LD_LIBRARY_PATH`
 - Unicode string handling not yet complete (a mixture of bytes and strings all over)
 - Exceptions in the visitor's class callbacks are ignored
 - libgraphqlparser is **dynamically** linked but It would be better if it was linked statically
+
+
+## TODO
+
+- build and upload wheels to pypi
+- build more wheel packages for linux 32 bit and other platforms

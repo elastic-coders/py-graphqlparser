@@ -1,7 +1,7 @@
 import sys
 
-import GraphQLAstVisitor
-import GraphQLParser
+from graphql_parser import GraphQLAstVisitor
+from graphql_parser import GraphQLParser
 
 
 class Visitor(GraphQLAstVisitor.GraphQLAstVisitor):

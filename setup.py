@@ -1,29 +1,26 @@
-from distutils.core import setup
-from distutils.extension import Extension
-import os
+from setuptools import setup, Extension
 
 from Cython.Build import cythonize
 
-LIBGRAPHQLPARSER_HOME = os.environ.get('LIBGRAPHQLPARSER_HOME', './libgraphqlparser')
-
+extensions = cythonize([
+    Extension('graphql_parser.{}'.format(cls_name),
+              ['graphql_parser/{}.pyx'.format(cls_name)],
+              libraries=['graphqlparser'],
+              include_dirs=['.'])
+    for cls_name in ['GraphQLParser', 'GraphQLAstVisitor',
+                     'GraphQLAst', 'GraphQLAstNode']
+])
 
 setup(
     name='graphqlparser',
-    version='0.0.1',
+    version='0.0.2',
     author='Marco Paolini',
     author_email='markopaolini@gmail.com',
     description='Python bindings for libgraphqlparser (Cython-based)',
+    long_description='Graphql parser based on libgraphql with Cython-based bindings',
     url='https://github.com/elastic-coders/py-graphqlparser',
-    ext_modules=cythonize(
-        Extension("grahpql_parser",
-                  ["graphql_parser/GraphQLParser.pyx",
-                   "graphql_parser/GraphQLAstVisitor.pyx",
-                   "graphql_parser/GraphQLAst.pyx",
-                   "graphql_parser/GraphQLAstNode.pyx"],
-                  libraries=['graphqlparser'],
-                  library_dirs=[LIBGRAPHQLPARSER_HOME]
-              )
-    ),
+    packages=['graphql_parser'],
+    ext_modules=extensions,
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Console',

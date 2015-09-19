@@ -5,4 +5,7 @@ __pycache__
 /build/
 /.wheelhouse/
 /.python-version
+/.tox
+/.cache
+/dist/
 
