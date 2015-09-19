@@ -33,24 +33,28 @@ Usage
 
 Make sure ``libgraphqlparser`` is available to the loader. You can add its base dir to  ``LD_LIBRARY_PATH``.
 
-Then you can start parsing by creating your custom visitor class::
+Then you can start parsing by creating your custom visitor class:
 
-    from graphql_parser import GraphQLAstVisitor
+.. code-block:: python
 
-    class MyVisitor(GraphQLAstVisitor.GraphQLAstVisitor):
+  from graphql_parser import GraphQLAstVisitor
 
-        def visit_field(self, node):
-            print('start field %s visit' % node)
+  class MyVisitor(GraphQLAstVisitor.GraphQLAstVisitor):
 
-        def end_visit_field(self, node):
-            print('end field %s visit' % node)
+      def visit_field(self, node):
+          print('start field %s visit' % node)
 
-And using it to visit a parsed query::
+      def end_visit_field(self, node):
+          print('end field %s visit' % node)
 
-    from graphql_parser import GraphQLParser
+And using it to visit a parsed query:
 
-    node = GraphQLParser.graphql_parse_string(query)
-    MyVisitor().visit_node(node)
+.. code-block:: python
+
+  from graphql_parser import GraphQLParser
+
+  node = GraphQLParser.graphql_parse_string(query)
+  MyVisitor().visit_node(node)
 
 
 Building from source checkout
