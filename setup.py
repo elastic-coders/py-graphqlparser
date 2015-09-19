@@ -20,7 +20,7 @@ setup(
     author_email='markopaolini@gmail.com',
     description='Python bindings for libgraphqlparser (Cython-based)',
     long_description='\n\n'.join([open('README.rst', 'r').read(),
-                                  '-----', '-----',
+                                  '-----',
                                   open('NEWS.rst', 'r').read()]),
     url='https://github.com/elastic-coders/py-graphqlparser',
     packages=['graphql_parser'],

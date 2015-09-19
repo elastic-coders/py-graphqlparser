@@ -13,14 +13,14 @@ Installing
 
 Prerequisites:
 
-- Install `cython`
-- Download and build `libgraphqlparser`
+- Install ``cython``
+- Download and build ``libgraphqlparser``
 
 
 Install using pip
 
-- set an env var `$GRAPHQL_HOME` to libgraphqlparser dir
-- `LDFLAGS="-L$GRAPHQL_HOME" CFLAGS="-I$GRAPHQL_HOME/c -I$GRAPHQL_HOME" pip install graphqlparser`
+- set an env var ``$GRAPHQL_HOME`` to the folder where libgraphqlparser is
+- ``LDFLAGS="-L$GRAPHQL_HOME" CFLAGS="-I$GRAPHQL_HOME/c -I$GRAPHQL_HOME" pip install graphqlparser``
 
 
 Building from source
@@ -28,24 +28,24 @@ Building from source
 
 Needed to rebuild the generate cython files from the libgraphql AST
 
-- download submodules with `git checkout --recursive`
-- build libgraphql library in folder `./libgraphql` (python2.7 required for building)
-(usually `pushd libgraphqlparser && cmake . && make && popd` works)
-- generate source code with `python ast/build_ast.py`
+- download submodules with ``git checkout --recursive``
+- build libgraphql library in folder ``./libgraphqlparser`` (python2.7 required for building)
+  (usually ``pushd libgraphqlparser && cmake . && make && popd`` works)
+- generate source code with ``python ast/build_ast.py``
 - you can now switch to python 3
-- install `cython`
-- run `LDFLAGS="-L./libgraphqlparser" CFLAGS="-Ilibgraphqlparser/c -Ilibgraphqlparser" python setup.py build_ext`
+- install ``cython``
+- run ``LDFLAGS="-L./libgraphqlparser" CFLAGS="-Ilibgraphqlparser/c -Ilibgraphqlparser" python setup.py build_ext``
 
 To package with wheel:
-- install wheel
-- create wheelhouse `mkdir .wheelhouse`
-- build with `pip wheel --wheel-dir=.wheelhouse .`
+- install wheel: ``pip install wheel``
+- create wheelhouse ``mkdir .wheelhouse``
+- build with ``pip wheel --wheel-dir=.wheelhouse .``
 
 
 Run
 ---
 
-Make sure `libgraphql` is available to the loader in your `LD_LIBRARY_PATH`
+Make sure ``libgraphqlparser`` is available to the loader. You can add its base dir to  ``LD_LIBRARY_PATH``.
 
 
 Known issues
