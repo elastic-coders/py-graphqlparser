@@ -1,7 +1,7 @@
 Graphql parser based  on libgraphqlparser
 =========================================
 
-Python2.7+ Python3.4+ class-based bindings to libgraphqlparser
+Python2.7+ Python3.4+ class-based bindings to libgraphqlparser; just a thin layer on top of ``libgraphqlparser`` C API.
 
 Still **EXPERIMENTAL**
 
@@ -9,19 +9,21 @@ Still **EXPERIMENTAL**
 Installing
 ----------
 
-Precompiled wheels are usually available on github https://github.com/elastic-coders/py-graphqlparser/releases/
+First install ``libgraphqlparser`` following instructions on `libgraphqlparser github page`_ .
 
-Make sure you pick the right wheel for your platform and python version, then install them using pip::
+Next you can install ``graphqlparser``. The easiest way is using precompiled wheels which are usually available
+on `graphqlparser github releases`_
+
+Pick the right wheel for your platform and python version, then install it using pip::
 
   pip install https://github.com/elastic-coders/py-graphqlparser/releases/download/v0.0.3/graphqlparser-0.0.3-cp27-none-linux_x86_64.whl
 
 
-Installing from source is a bit more complex. The main steps are
+As an alternative you can install ``graphqlparser`` from source distribution:
 
 - Install ``cython``
-- Download and build ``libgraphqlparser``
-- set an env var ``$GRAPHQL_HOME`` to the folder where libgraphqlparser is
-- compile with::
+- Set an env var ``$GRAPHQL_HOME`` to the folder where ``libgraphqlparser.so`` and ``Ast.h`` are
+- Install ``graphqlparser`` with pip::
 
     LDFLAGS="-L$GRAPHQL_HOME" CFLAGS="-I$GRAPHQL_HOME/c -I$GRAPHQL_HOME" pip install graphqlparser
 
@@ -73,7 +75,7 @@ Rebuild the generated cython files from the libgraphql AST (usually not needed)
 - install ``cython``
 - run::
 
-    LDFLAGS="-L./libgraphqlparser" CFLAGS="-Ilibgraphqlparser/c -Ilibgraphqlparser" python setup.py build_extx
+    LDFLAGS="-L./libgraphqlparser" CFLAGS="-Ilibgraphqlparser/c -Ilibgraphqlparser" python setup.py build_ext
 
 
 To create a wheel distribution:
@@ -96,3 +98,7 @@ TODO
 ----
 
 - build more wheel packages for linux 32 bit and other platforms
+
+
+.. _libgraphqlparser github page: https://github.com/graphql/libgraphqlparser
+.. _graphqlparser github releases:  https://github.com/elastic-coders/py-graphqlparser/releases/
