@@ -41,6 +41,8 @@ Then you can start parsing by creating your custom visitor class:
 
       def visit_field(self, node):
           print('start field %s visit' % node)
+          # Return 1 to keep visiting children, 0 to skip them
+          return 1
 
       def end_visit_field(self, node):
           print('end field %s visit' % node)
