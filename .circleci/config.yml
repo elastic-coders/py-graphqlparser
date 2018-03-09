@@ -1,0 +1,48 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/py-graphqlparser
+    docker:
+      - image: ubuntu:16.04
+    steps:
+      - checkout
+      - run:
+          name: apt update
+          command: apt-get -q update
+      - run:
+          name: apt required packages
+          command: apt-get install -qy build-essential python python3 python3-pip python3-dev git cmake bison flex pkg-config
+      - run:
+          name: install cython
+          command: pip3 install -q cython==0.27.3
+      - run:
+          name: git submodules
+          command: |
+            mkdir -p -m 700 ~/.ssh
+            ssh-keyscan github.com >> ~/.ssh/known_hosts
+            git submodule -q sync
+            git submodule -q update -f --init
+      - run:
+          name: build libgraphqlparser
+          command: |
+            cd libgraphqlparser
+            cmake .
+            make
+      - run:
+          name: ast
+          command: python2 ast/build_ast.py
+      - run:
+          name: build ext
+          command: LDFLAGS="-L./libgraphqlparser" CFLAGS="-Ilibgraphqlparser/c -Ilibgraphqlparser" python3 setup.py build_ext
+      - run:
+          name: install package
+          command: pip3 install -e .
+      - run:
+          name: install pytest
+          command: pip3 install pytest
+      - run:
+          name: test
+          command: python3 -m pytest
+          environment:
+            LD_LIBRARY_PATH: "./libgraphqlparser"

@@ -15,7 +15,7 @@ extensions = cythonize([
 
 setup(
     name='graphqlparser',
-    version='0.0.3',
+    version='0.0.4',
     author='Marco Paolini',
     author_email='markopaolini@gmail.com',
     description='Python bindings for libgraphqlparser (Cython-based)',

@@ -1,0 +1,7 @@
+**/.git/
+**/__pycache__/
+.circleci/
+.pytest_cache/
+.tox/
+.wheelhouse/
+**/CMakeCache.txt

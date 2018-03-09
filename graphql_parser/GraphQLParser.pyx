@@ -9,8 +9,8 @@ class GraphQLParseError(Exception):
 
 
 def graphql_parse_string(text):
-    cdef char* error_c = NULL
-    cdef char* text_c
+    cdef const char* error_c = NULL
+    cdef const char* text_c
     cdef cGraphQLAstNode.GraphQLAstNode* node_c
     byte_string = text.encode()
     text_c = byte_string

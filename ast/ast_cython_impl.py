@@ -55,7 +55,7 @@ def field_prototype(owning_type, type, name, nullable, plural):
     # python object return type
     return '''
     def get_%(snake)s(self):
-        cdef %(cmodule)s.%(return_st)s *next
+        cdef const %(cmodule)s.%(return_st)s *next
         next = %(cmodule)s.%(owning_st)s_get_%(snake)s(self._wrapped)
         if next is NULL:
            return None
@@ -88,7 +88,7 @@ cdef class GraphQLAst:
 cdef class %(name)s(GraphQLAst):
 
     @staticmethod
-    cdef create(%(cmodule)s.%(name)s *thing):
+    cdef create(const %(cmodule)s.%(name)s *thing):
         node = %(name)s()
         node._wrapped = thing
         return node

@@ -6,3 +6,6 @@ GraphQLAstVisitor.pyx
 *~
 *.c
 .python-version
+*.so
+*.html
+.pytest_cache

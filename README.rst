@@ -1,6 +1,9 @@
 Graphql parser based  on libgraphqlparser
 =========================================
 
+.. image:: https://circleci.com/gh/elastic-coders/py-graphqlparser.svg?style=svg
+    :target: https://circleci.com/gh/elastic-coders/py-graphqlparser
+
 Python2.7+ Python3.4+ class-based bindings to libgraphqlparser; just a thin layer on top of ``libgraphqlparser`` C API.
 
 Still **EXPERIMENTAL**
@@ -16,7 +19,7 @@ on `graphqlparser github releases`_
 
 Pick the right wheel for your platform and python version, then install it using pip::
 
-  pip install https://github.com/elastic-coders/py-graphqlparser/releases/download/v0.0.3/graphqlparser-0.0.3-cp27-none-linux_x86_64.whl
+  pip install https://github.com/elastic-coders/py-graphqlparser/releases/download/v0.0.4/graphqlparser-0.0.4-cp36-cp36m-linux_x86_64.whl
 
 
 As an alternative you can install ``graphqlparser`` from source distribution:
