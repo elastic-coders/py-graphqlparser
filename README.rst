@@ -16,7 +16,7 @@ on `graphqlparser github releases`_
 
 Pick the right wheel for your platform and python version, then install it using pip::
 
-  pip install https://github.com/elastic-coders/py-graphqlparser/releases/download/v0.0.3/graphqlparser-0.0.3-cp27-none-linux_x86_64.whl
+  pip install https://github.com/elastic-coders/py-graphqlparser/releases/download/v0.0.4/graphqlparser-0.0.4-cp36-cp36m-linux_x86_64.whl
 
 
 As an alternative you can install ``graphqlparser`` from source distribution:

@@ -36,10 +36,10 @@ cdef class GraphQLAst:
     print '''
 cdef class %(name)s(GraphQLAst):
 
-    cdef %(cmodule)s.%(name)s* _wrapped
+    cdef const %(cmodule)s.%(name)s* _wrapped
 
     @staticmethod
-    cdef create(cGraphQLAst.%(name)s *thing)
+    cdef create(const cGraphQLAst.%(name)s *thing)
 
 ''' % {'name': st_name, 'cmodule': ast_cython_c.CMODULE_NAME}
     self._current_type = name

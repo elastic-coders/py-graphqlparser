@@ -50,7 +50,7 @@ cdef extern from "GraphQLAstVisitor.h":
 
     print '''
     void graphql_node_visit(GraphQLAstNode *node,
-                            GraphQLAstVisitorCallbacks *callbacks,
+                            const GraphQLAstVisitorCallbacks *callbacks,
                             void *userData)
 '''
 
