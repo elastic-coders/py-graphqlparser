@@ -14,7 +14,7 @@ class Visitor(GraphQLAstVisitor.GraphQLAstVisitor):
         return 1
 
     def visit_operation_definition(self, node):
-        print(node.__class__, node.get_operation(), node.get_name().get_value())
+        print(node.__class__, node.get_operation())
         return 1
 
     def visit_variable_definition(self, node):
@@ -65,7 +65,14 @@ class Visitor(GraphQLAstVisitor.GraphQLAstVisitor):
         print(node.__class__, node.get_value())
         return 1
 
+    def visit_string_value(self, node):
+        print(node.__class__, node.get_value())
+        return 1
+
 if __name__ == '__main__':
-    query = sys.argv[1]
-    node = GraphQLParser.graphql_parse_string(query)
+    import argparse
+    parser = argparse.ArgumentParser(description='GraphQL parser example')
+    parser.add_argument('query')
+    args = parser.parse_args()
+    node = GraphQLParser.graphql_parse_string(args.query)
     Visitor().visit_node(node)
