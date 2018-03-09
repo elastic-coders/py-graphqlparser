@@ -1,6 +1,9 @@
 Graphql parser based  on libgraphqlparser
 =========================================
 
+.. image:: https://circleci.com/gh/elastic-coders/py-graphqlparser.svg?style=svg
+    :target: https://circleci.com/gh/elastic-coders/py-graphqlparser
+
 Python2.7+ Python3.4+ class-based bindings to libgraphqlparser; just a thin layer on top of ``libgraphqlparser`` C API.
 
 Still **EXPERIMENTAL**
